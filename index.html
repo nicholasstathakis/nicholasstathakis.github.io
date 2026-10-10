@@ -6,22 +6,39 @@
 <title>Nicholas Stathakis</title>
 <meta name="description" content="Nicholas Stathakis, Software Engineer at Canva in Sydney.">
 <style>
-  html { background: #d8ccb0; }
+  html { background: #cfc2a3; }
   body {
+    position: relative;
+    box-sizing: border-box;
+    min-height: calc(100vh - 3em);
     color: #3b3428;
-    background: #f6efdc;
+    /* Paper grain from SVG noise, plus faint darkening toward the edges */
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.15 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at center, #f8f2e1 60%, #ece2c8 100%);
     max-width: 38em;
-    margin: 3em auto;
-    padding: 3em 3.5em;
-    border: 1px solid #c9bb98;
-    box-shadow: 0 2px 4px rgba(60, 45, 20, 0.15), 0 8px 24px rgba(60, 45, 20, 0.12);
+    margin: 3em auto 0;
+    padding: 3.5em 3.5em 4em;
+    border: 1px solid #bfb08c;
+    border-bottom: 0;
+    box-shadow: 0 1px 3px rgba(60, 45, 20, 0.2), 0 10px 30px rgba(60, 45, 20, 0.18);
     font: 17px/1.55 Georgia, "Times New Roman", serif;
   }
-  h1 { margin-top: 0; }
-  @media (max-width: 600px) {
-    body { margin: 1em; padding: 1.5em 1.25em; }
+  /* Dog-eared top right corner */
+  body::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 2.6em;
+    height: 2.6em;
+    background: linear-gradient(225deg, #cfc2a3 50%, #e3d7b8 50%);
+    box-shadow: -2px 2px 3px rgba(60, 45, 20, 0.2);
   }
-  h1 { margin-bottom: 0; }
+  @media (max-width: 600px) {
+    body { margin: 1em 1em 0; min-height: calc(100vh - 1em); padding: 2em 1.25em 3em; }
+  }
+  h1 { margin: 0; }
   h2 { margin-top: 2em; font-size: 1.15em; border-bottom: 1px solid; }
   a { color: #1f4e79; }
   a:visited { color: #6b3f6b; }
